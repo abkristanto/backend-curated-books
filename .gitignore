@@ -1,0 +1,36 @@
+# Build artifacts
+bin/
+obj/
+
+# User-specific files
+*.user
+*.rsuser
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Visual Studio / VS Code
+.vscode/
+.vs/
+
+# Dotnet specific
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# NuGet
+*.nupkg
+*.snupkg
+*.nuspec
+*.psmdcp
+.nuget/
+
+# Logs
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Secrets (handled via dotnet user-secrets, not git)
+appsettings.*.local.json
