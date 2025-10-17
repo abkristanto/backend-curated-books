@@ -4,7 +4,7 @@ using BookStore.Api.Models;
 
 namespace BookStore.Api.Services;
 
-public sealed class BooksService
+public sealed class BooksService : IBooksService
 {
     private readonly IBooksRepository _repo;
 
