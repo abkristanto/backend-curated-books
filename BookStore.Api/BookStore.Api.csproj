@@ -1,18 +1,15 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>0816fe3d-1e78-4129-b64c-2ea49b1a1759</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.10" />
     <PackageReference Include="Npgsql" Version="10.0.0-rc.1" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Controllers/" />
   </ItemGroup>
 
 </Project>
