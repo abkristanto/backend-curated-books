@@ -1,4 +1,5 @@
 using System;
+using BookStore.Api.Dtos;
 using BookStore.Api.Models;
 using BookStore.Api.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -31,8 +32,17 @@ public sealed class BooksController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> Create(Book book, CancellationToken ct)
+    public async Task<IActionResult> Create([FromBody] CreateBookDto dto, CancellationToken ct)
     {
+        var book = new Book
+        {
+            Title = dto.Title.Trim(),
+            Author = dto.Author.Trim(),
+            Genre = dto.Genre?.Trim(),
+            Price = dto.Price!.Value,
+            PublishedOn = dto.PublishedOn!.Value
+        };
+
         var id = await _service.CreateAsync(book, ct);
 
         var created = await _service.GetAsync(id, ct);
@@ -42,10 +52,17 @@ public sealed class BooksController : ControllerBase
     }
 
     [HttpPut("{id}")]
-    public async Task<IActionResult> Update(int id, Book book, CancellationToken ct)
+    public async Task<IActionResult> Update(int id, [FromBody] UpdateBookDto dto, CancellationToken ct)
     {
-        if (id != book.Id)
-            return BadRequest("ID in URL does not match ID in body");
+        var book = new Book
+        {
+            Id = id,
+            Title = dto.Title.Trim(),
+            Author = dto.Author.Trim(),
+            Genre = dto.Genre?.Trim(),
+            Price = dto.Price!.Value,
+            PublishedOn = dto.PublishedOn!.Value
+        };
 
         var success = await _service.UpdateAsync(book, ct);
         return success ? NoContent() : NotFound();
