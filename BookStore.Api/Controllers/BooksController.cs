@@ -40,7 +40,7 @@ public sealed class BooksController : ControllerBase
             Author = dto.Author.Trim(),
             Genre = dto.Genre?.Trim(),
             Price = dto.Price!.Value,
-            PublishedOn = dto.PublishedOn!.Value
+            PublishedOn = DateOnly.FromDateTime(dto.PublishedOn!.Value)
         };
 
         var id = await _service.CreateAsync(book, ct);
@@ -61,7 +61,7 @@ public sealed class BooksController : ControllerBase
             Author = dto.Author.Trim(),
             Genre = dto.Genre?.Trim(),
             Price = dto.Price!.Value,
-            PublishedOn = dto.PublishedOn!.Value
+            PublishedOn = DateOnly.FromDateTime(dto.PublishedOn!.Value)
         };
 
         var success = await _service.UpdateAsync(book, ct);

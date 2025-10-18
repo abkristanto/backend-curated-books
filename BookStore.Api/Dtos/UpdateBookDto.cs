@@ -17,5 +17,5 @@ public record class UpdateBookDto
     public decimal? Price { get; init; }
 
     [Required, DataType(DataType.Date)]
-    public DateOnly? PublishedOn { get; init; }
+    public DateTime? PublishedOn { get; init; }
 }

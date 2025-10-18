@@ -17,8 +17,20 @@ builder.Services.AddScoped<IBooksRepository, PostgresBooksRepository>();
 builder.Services.AddScoped<IBooksService, BooksService>();
 builder.Services.AddControllers();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("frontend", policy =>
+    {
+        policy.WithOrigins("http://localhost:5173") // your React dev server
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
+});
+
 
 var app = builder.Build();
+
+app.UseCors("frontend");
 
 app.MapControllers();
 

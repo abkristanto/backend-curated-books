@@ -22,8 +22,6 @@ public sealed class BooksService : IBooksService
         if (string.IsNullOrWhiteSpace(book.Title)) throw new ArgumentException("Book must have a title");
         if (string.IsNullOrWhiteSpace(book.Author)) throw new ArgumentException("Book must have an author");
 
-        if (book.Price <= 0) throw new ArgumentException("Book price must be greater than zero");
-
         var normalized = book with
         {
             Title = book.Title.Trim(),
