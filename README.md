@@ -1,0 +1,2 @@
+# Curated Books API
+This API is built using .NET 9.0, applying controller-service-repository patterns to ensure maintainability and modularity. The backend connects to PostgreSQL using Npgsql. The controller ensures that HTTP requests and responses match the Data Transfer Object (DTO) for the corresponding endpoint. The service contains business-specific logic, such as any filtering that may occur outside of data annotation. The repository handles communication with the database using raw SQL queries to PostgreSQL. 
